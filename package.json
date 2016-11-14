@@ -1,0 +1,34 @@
+{
+  "name": "yelp-fusion",
+  "version": "1.0.0",
+  "description": "Yelp Fusion API client for Node.js",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "tap ./lib/*.test.*js --coverage",
+    "cover": "tap --coverage-report=lcov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "tonybadguy/yelp-fusion"
+  },
+  "keywords": [
+    "yelp",
+    "fusion",
+    "REST",
+    "client",
+    "api"
+  ],
+  "author": "Tony Liu",
+  "license": "MIT",
+  "dependencies": {
+    "@tonybadguy/call-me-maybe": "^2.0.1"
+  },
+  "devDependencies": {
+    "tap": "^8.0.0"
+  },
+  "nyc": {
+    "exclude": [
+      "lib/*.test.*js"
+    ]
+  }
+}
