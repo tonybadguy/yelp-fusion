@@ -4,3 +4,11 @@ node_js:
 after_success:
 - npm run cover
 - bash <(curl -s https://codecov.io/bash)
+deploy:
+  provider: npm
+  email: tonybadguy+npm@gmail.com
+  api_key:
+    secure: YBuTaWDDEBt4F4hLGEpWQsVo1O5KzL/kO1DYtQzoWyW5ONqZExJ4tYFqnIYsLHMB/amax2IflckuzG16rpbx+exjL8b8hTwe/5UuqRmR+HwqwHIGQ6a3Eotr8+rHYlsqPfFeG4Ffcb0gIucmv+gU953iluCLJ8HysDLNpDmUwkq2jARlwYO37vqzEOlL7URgjVN5Xi9hvGUvaZkvMWpi6prmhrEDmNLSgW8ULtCEkHIApdMPkivhn3NGNT0iwSzEPDI8gIQ9NkSaAkWr3O8BnoFpr4lOQdMFll38/fbv67fF6lAxw5Mw/lSAnWL6HLdWO09K1irr38VdmgvBTKEv7JxlLLY4apGlDTPJkTDQXxm82hZymCwl4jK3Gx0jGbtQk7mnBbRLIJ/2awaK1pd27/IPNJP32LEuynIjdDuMOUdH0QOU6yXqr3us9YzO9+7EVWnGnklXK4UztOWywR84VlVuwmOtYCOL/WMje1amSeEB08qnmPx2EPlvHeQWvcyQRlkt5Jdc9sI0aejuSVv3jHy7W6tm7q/bmGpKS0nIquFrJ/kZ2jiC6+zSz5ldIBu/wWP7VqmDRvhkpIMx7y7F1XV2qzZ/qlRvwfGV8Wvti+rz6shrDx+qpYRTnRIF+/wnjqXKbFRGFoH2VEkbIdegg1jwCdoaBF9u8oBaefKucW0=
+  on:
+    tags: true
+    repo: tonybadguy/yelp-fusion
