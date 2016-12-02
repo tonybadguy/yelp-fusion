@@ -50,7 +50,7 @@ client.search({
 const yelp = require('yelp-fusion');
 
 yelp.accessToken(clientId, clientSecret).then(response => {
-  const client = yelp.client(token);
+  const client = yelp.client(response.jsonBody.access_token);
 
   client.search({
     term:'Four Barrel Coffee',
