@@ -17,7 +17,7 @@ npm install yelp-fusion --save
 
 const yelp = require('yelp-fusion');
 
-const token = yelp.accessToken(clientId, clientSecret).then(response => {
+yelp.accessToken(clientId, clientSecret).then(response => {
   console.log(response.jsonBody.access_token);
 }).catch(e => {
   console.log(e);
