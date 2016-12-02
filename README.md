@@ -42,6 +42,28 @@ client.search({
 });
 ```
 
+
+##### Or get access token and search at the same time
+```javascript
+'use strict';
+
+const yelp = require('yelp-fusion');
+
+yelp.accessToken(clientId, clientSecret).then(response => {
+  const client = yelp.client(token);
+
+  client.search({
+    term:'Four Barrel Coffee',
+    location: 'san francisco, ca'
+  }).then(response => {
+    console.log(response.jsonBody.businesses[0].name);
+  });
+}).catch(e => {
+  console.log(e);
+});
+
+```
+
 ## Phone Search
 ```javascript
 'use strict';
