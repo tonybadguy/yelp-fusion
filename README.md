@@ -6,6 +6,11 @@ Yelp Fusion API client for Node.js with Promises
 Please refer to official Yelp documentation for request / response model details:
 https://www.yelp.com/developers/documentation/v3
 
+## Install NPM Package
+```
+npm install yelp-fusion --save
+```
+
 ## Get Access Token
 ```javascript
 'use strict';
