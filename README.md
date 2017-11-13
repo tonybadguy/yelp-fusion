@@ -153,7 +153,8 @@ const yelp = require('yelp-fusion');
 
 const client = yelp.client(token);
 
-client.autocomplete('lookup', {
+// matchType can be 'lookup' or 'best'
+client.businessMatch('lookup', {
   name: 'Pannikin Coffee & Tea',
   address1: '510 N Coast Hwy 101',
   address2: 'Encinitas, CA 92024',
