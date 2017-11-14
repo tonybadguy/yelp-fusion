@@ -144,3 +144,26 @@ client.autocomplete({
   console.log(e);
 });
 ```
+
+## Business Match
+```javascript
+'use strict';
+
+const yelp = require('yelp-fusion');
+
+const client = yelp.client(token);
+
+// matchType can be 'lookup' or 'best'
+client.businessMatch('lookup', {
+  name: 'Pannikin Coffee & Tea',
+  address1: '510 N Coast Hwy 101',
+  address2: 'Encinitas, CA 92024',
+  city: 'Encinitas',
+  state: 'CA',
+  country: 'US'
+}).then(response => {
+  console.log(response.jsonBody.businesses[0].id);
+}).catch(e => {
+  console.log(e);
+});
+```
