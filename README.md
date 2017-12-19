@@ -6,8 +6,8 @@ Yelp Fusion API client for Node.js with Promises
 Please refer to official Yelp documentation for request / response model details:
 https://www.yelp.com/developers/documentation/v3
 
-## V2 Breaking Changes
-* ```yelp.token()``` method is removed because it's being deprecated by the API. See https://www.yelp.com/developers/documentation/v3/authentication#where-is-my-client-secret-going
+#### V2 Breaking Changes
+* ```yelp.token()``` method is removed because OAuthV2 is being deprecated by the API. Use the new API Key in place of the token derived from client id and client secret. See https://www.yelp.com/developers/documentation/v3/authentication#where-is-my-client-secret-going
 
 ## Install NPM Package
 ```
