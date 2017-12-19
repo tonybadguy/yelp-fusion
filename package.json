@@ -1,6 +1,6 @@
 {
   "name": "yelp-fusion",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "Yelp Fusion API client for Node.js",
   "main": "lib/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "@tonybadguy/call-me-maybe": "^2.0.1"
   },
   "devDependencies": {
-    "tap": "^8.0.0"
+    "tap": "^11.0.0"
   },
   "nyc": {
     "exclude": [
