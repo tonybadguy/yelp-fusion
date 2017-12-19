@@ -7,7 +7,7 @@ Please refer to official Yelp documentation for request / response model details
 https://www.yelp.com/developers/documentation/v3
 
 ## V2 Breaking Changes
-* ```yelp.token()``` method is removed because it's being deprecated by the API.
+* ```yelp.token()``` method is removed because it's being deprecated by the API. See https://www.yelp.com/developers/documentation/v3/authentication#where-is-my-client-secret-going
 
 ## Install NPM Package
 ```
