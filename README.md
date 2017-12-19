@@ -11,19 +11,6 @@ https://www.yelp.com/developers/documentation/v3
 npm install yelp-fusion --save
 ```
 
-## Get Access Token
-```javascript
-'use strict';
-
-const yelp = require('yelp-fusion');
-
-yelp.accessToken(clientId, clientSecret).then(response => {
-  console.log(response.jsonBody.access_token);
-}).catch(e => {
-  console.log(e);
-});
-```
-
 ## Search
 ```javascript
 'use strict';
@@ -40,28 +27,6 @@ client.search({
 }).catch(e => {
   console.log(e);
 });
-```
-
-
-##### Or get access token and search at the same time
-```javascript
-'use strict';
-
-const yelp = require('yelp-fusion');
-
-yelp.accessToken(clientId, clientSecret).then(response => {
-  const client = yelp.client(response.jsonBody.access_token);
-
-  client.search({
-    term:'Four Barrel Coffee',
-    location: 'san francisco, ca'
-  }).then(response => {
-    console.log(response.jsonBody.businesses[0].name);
-  });
-}).catch(e => {
-  console.log(e);
-});
-
 ```
 
 ## Phone Search
