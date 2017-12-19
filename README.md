@@ -17,7 +17,7 @@ npm install yelp-fusion --save
 
 const yelp = require('yelp-fusion');
 
-const client = yelp.client(token);
+const client = yelp.client(apiKey);
 
 client.search({
   term:'Four Barrel Coffee',
@@ -35,7 +35,7 @@ client.search({
 
 const yelp = require('yelp-fusion');
 
-const client = yelp.client(token);
+const client = yelp.client(apiKey);
 
 client.phoneSearch({
   phone:'+14157492060'
@@ -52,7 +52,7 @@ client.phoneSearch({
 
 const yelp = require('yelp-fusion');
 
-const client = yelp.client(token);
+const client = yelp.client(apiKey);
 
 client.transactionSearch('delivery', {
   location:'san diego'
@@ -69,7 +69,7 @@ client.transactionSearch('delivery', {
 
 const yelp = require('yelp-fusion');
 
-const client = yelp.client(token);
+const client = yelp.client(apiKey);
 
 client.business('gary-danko-san-francisco').then(response => {
   console.log(response.jsonBody.name);
@@ -84,7 +84,7 @@ client.business('gary-danko-san-francisco').then(response => {
 
 const yelp = require('yelp-fusion');
 
-const client = yelp.client(token);
+const client = yelp.client(apiKey);
 
 client.reviews('gary-danko-san-francisco').then(response => {
   console.log(response.jsonBody.reviews[0].text);
@@ -99,7 +99,7 @@ client.reviews('gary-danko-san-francisco').then(response => {
 
 const yelp = require('yelp-fusion');
 
-const client = yelp.client(token);
+const client = yelp.client(apiKey);
 
 client.autocomplete({
   text:'pizza'
@@ -116,7 +116,7 @@ client.autocomplete({
 
 const yelp = require('yelp-fusion');
 
-const client = yelp.client(token);
+const client = yelp.client(apiKey);
 
 // matchType can be 'lookup' or 'best'
 client.businessMatch('lookup', {
