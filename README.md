@@ -139,9 +139,11 @@ client.businessMatch('lookup', {
 ## Event Search
 ```javascript
 'use strict';
- const yelp = require('yelp-fusion');
- const client = yelp.client(apiKey);
- client.eventSearch({
+
+const yelp = require('yelp-fusion');
+const client = yelp.client(apiKey);
+
+client.eventSearch({
   categories:2,
   is_free:true,
   location: 'claremont, ca'
