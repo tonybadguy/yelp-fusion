@@ -21,7 +21,7 @@
   "author": "Tony Liu",
   "license": "MIT",
   "dependencies": {
-    "@tonybadguy/call-me-maybe": "^2.0.1"
+    "@tonybadguy/call-me-maybe": "^2.1.1"
   },
   "devDependencies": {
     "proxyquire": "^2.1.0",
