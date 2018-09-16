@@ -153,3 +153,22 @@ client.eventSearch({
   console.log(e);
 });
 ```
+
+## Advanced Request Options -- SocketTimeout
+
+Socket Timeout will abort the request if the server doesn't complete the response within that time in milliseconds.
+
+```javascript
+'use strict';
+
+const yelp = require('yelp-fusion');
+const client = yelp.client(apiKey, {
+  socketTimeout: 5000
+});
+
+// or optionally
+// client.options.socketTimeout = 5000;
+```
+
+Additionally, the options object support all fields defined here:
+https://nodejs.org/api/http.html#http_http_request_options_callback
