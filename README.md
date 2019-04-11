@@ -227,7 +227,7 @@ client.eventSearch({
 ```
 
 ### Featured Event
-```
+```javascript
 'use strict';
 
 const yelp = require('./yelp-fusion.js');
@@ -250,11 +250,11 @@ client.featuredEvent({
 ## Category Endpoint 
 
 ### All Categories
-```
+```javascript
 ```
 
 ### Category Details
-```
+```javascript
 ```
 
 ## Advanced Request Options -- SocketTimeout
