@@ -201,7 +201,7 @@ const client = yelp.client(apiKey);
 const eventID = "oakland-saucy-oakland-restaurant-pop-up";
 
 client.eventLookup(eventID).then(response => {
-  console.log(response.jsonBody.reviews[0].text);
+  console.log(response.jsonBody);
 }).catch(e => {
   console.log(e);
 });
