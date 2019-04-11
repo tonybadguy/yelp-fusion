@@ -16,6 +16,29 @@ npm install yelp-fusion --save
 
 <br/>
 
+## Table of Contents
+Business Endpoint:
+  * [Business Search](#business-search)
+  * [Phone](#phone-search)
+  * [Delivery](#transaction-search)
+  * [Business Details](#business-details)
+  * [Match](#business-match)
+  * [Reviews](#reviews)
+  * [Autocomplete](#autocomplete)
+
+Event Endpoint:
+  * [Event Lookup](#event-lookup)
+  * [Event Search](#event-search)
+  * [Featured Event](#featured-event)
+
+Category Endpoint:
+  * [All Categories](#all-categories)
+  * [Category Details](#category-details)
+
+<br/>
+
+## Business Endpoint 
+
 ### Business Search
 ```javascript
 'use strict';
@@ -158,6 +181,26 @@ client.autocomplete({
   // locale: 'en_US'
 }).then(response => {
   console.log(response.jsonBody.terms[0].text);
+}).catch(e => {
+  console.log(e);
+});
+```
+
+## Event Endpoint 
+
+### Event Lookup
+```javascript
+'use strict';
+
+const yelp = require('yelp-fusion');
+const client = yelp.client(apiKey);
+
+client.eventSearch({
+  categories:2,
+  is_free:true,
+  location: 'claremont, ca'
+}).then(response => {
+  console.log(response.jsonBody.events[0].name);
 }).catch(e => {
   console.log(e);
 });
