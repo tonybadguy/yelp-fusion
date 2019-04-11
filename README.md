@@ -42,6 +42,7 @@ Category Endpoint:
 ### Business Search
 ```javascript
 'use strict';
+
 const yelp = require('yelp-fusion');
 const client = yelp.client(apiKey);
 
@@ -70,6 +71,7 @@ client.search({
 ### Phone Search
 ```javascript
 'use strict';
+
 const yelp = require('yelp-fusion');
 const client = yelp.client(apiKey);
 
@@ -86,6 +88,7 @@ client.phoneSearch({
 ### Transaction Search
 ```javascript
 'use strict';
+
 const yelp = require('yelp-fusion');
 const client = yelp.client(apiKey);
 
@@ -103,6 +106,7 @@ client.transactionSearch('delivery', {
 ### Business Details
 ```javascript
 'use strict';
+
 const yelp = require('yelp-fusion');
 const client = yelp.client(apiKey);
 
@@ -116,6 +120,7 @@ client.business('gary-danko-san-francisco').then(response => {
 ### Business Match
 ```javascript
 'use strict';
+
 const yelp = require('yelp-fusion');
 const client = yelp.client(apiKey);
 
@@ -144,6 +149,7 @@ client.businessMatch('lookup', {
 ### Reviews
 ```javascript
 'use strict';
+
 const yelp = require('yelp-fusion');
 const client = yelp.client(apiKey);
 
@@ -157,6 +163,7 @@ client.reviews('gary-danko-san-francisco').then(response => {
 ### Autocomplete
 ```javascript
 'use strict';
+
 const yelp = require('yelp-fusion');
 const client = yelp.client(apiKey);
 
@@ -182,6 +189,7 @@ client.autocomplete({
 ### Event Search
 ```javascript
 'use strict';
+
 const yelp = require('yelp-fusion');
 const client = yelp.client(apiKey);
 
@@ -217,6 +225,7 @@ Socket Timeout will abort the request if the server doesn't complete the respons
 
 ```javascript
 'use strict';
+
 const yelp = require('yelp-fusion');
 const client = yelp.client(apiKey, {
   socketTimeout: 5000
