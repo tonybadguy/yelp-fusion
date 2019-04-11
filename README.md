@@ -198,7 +198,7 @@ client.autocomplete({
 const yelp = require('yelp-fusion');
 const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
-cosnt eventID = "oakland-saucy-oakland-restaurant-pop-up";
+const eventID = "oakland-saucy-oakland-restaurant-pop-up";
 
 client.eventLookup(eventID).then(response => {
   console.log(response.jsonBody.reviews[0].text);
