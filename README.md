@@ -14,6 +14,8 @@ https://www.yelp.com/developers/documentation/v3
 npm install yelp-fusion --save
 ```
 
+<br/>
+
 ## Table of Contents
 Business Endpoint:
   * [Business Search](#business-search)
@@ -183,6 +185,7 @@ client.autocomplete({
   console.log(e);
 });
 ```
+<br/>
 
 ## Event Endpoint 
 
@@ -211,6 +214,7 @@ client.eventSearch({
 ### Featured Event
 ```
 ```
+<br/>
 
 ## Category Endpoint 
 
