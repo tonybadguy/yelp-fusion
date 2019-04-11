@@ -201,7 +201,7 @@ const client = yelp.client(apiKey);
 const eventID = "oakland-saucy-oakland-restaurant-pop-up";
 
 client.eventLookup(eventID).then(response => {
-  console.log(response.jsonBody);
+  console.log(response.jsonBody.description);
 }).catch(e => {
   console.log(e);
 });
@@ -228,6 +228,22 @@ client.eventSearch({
 
 ### Featured Event
 ```
+'use strict';
+
+const yelp = require('./yelp-fusion.js');
+const apiKey = '<YOUR API KEY>'; 
+const client = yelp.client(apiKey);
+
+client.featuredEvent({
+  location: 'claremont, ca'
+//   latitude: 37.8112634,
+//   longitude: -122.2659978,
+//   locale: 'en_US'
+}).then(response => {
+  console.log(response.jsonBody.description);
+}).catch(e => {
+  console.log(e);
+});
 ```
 <br/>
 
