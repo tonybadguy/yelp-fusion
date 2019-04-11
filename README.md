@@ -49,18 +49,6 @@ const client = yelp.client('YOUR_API_KEY');
 client.businessSearch({
   term: 'Four Barrel Coffee',
   location: 'san francisco, ca',
-  // latitude: 37.7670169511878, 
-  // longitude: -122.42184275,
-  // radius: 2000,
-  // categories: 'food',
-  // locale: 'en_US',
-  // limit: 1,
-  // offset: 0,
-  // sort_by: "rating",
-  // price: "1,2,3",
-  // open_now: false,
-  // open_at: 0,
-  // attributes: "hot"
 }).then(response => {
   console.log(response.jsonBody.businesses[0].name);
 }).catch(e => {
@@ -77,7 +65,6 @@ const client = yelp.client('YOUR_API_KEY');
 
 client.phoneSearch({
   phone: '+14157492060'
-  // locale: 'en_US'
 }).then(response => {
   console.log(response.jsonBody.businesses[0].name);
 }).catch(e => {
@@ -94,8 +81,6 @@ const client = yelp.client('YOUR_API_KEY');
 
 client.transactionSearch('delivery', {
   location: 'san diego'
-  // latitude: 37.7670169511878, 
-  // longitude: -122.42184275,
 }).then(response => {
   console.log(response.jsonBody.businesses[0].name);
 }).catch(e => {
@@ -133,14 +118,6 @@ client.businessMatch('lookup', {
   city: 'Encinitas',
   state: 'CA',
   country: 'US'
-  // address3: "",
-  // latitude: 37.7670169511878, 
-  // longitude: -122.42184275,
-  // phone: '+4105830000',
-  // zip_code: '21286',
-  // yelp_business_id: 'fshpjHrtIlysFm0CnyUjbA',
-  // limit: 1,
-  // match_threshold: 'none'
 }).then(response => {
   console.log(response.jsonBody.businesses[0].id);
 }).catch(e => {
@@ -172,9 +149,6 @@ const client = yelp.client('YOUR_API_KEY');
 
 client.autocomplete({
   text: 'pizza'
-  // latitude: 37.7670169511878, 
-  // longitude: -122.42184275,
-  // locale: 'en_US'
 }).then(response => {
   console.log(response.jsonBody.terms[0].text);
 }).catch(e => {
@@ -211,17 +185,6 @@ client.eventSearch({
   categories: 2,
   is_free: true,
   location: 'claremont, ca'
-  // locale: 'en_US',
-  // offset: 0,
-  // limit: 1,
-  // sort_by: 'asc',
-  // sort_on: 'popularity',
-  // start_date: 221845420799
-  // end_date: 221845420800
-  // latitude: 37.7670169511878, 
-  // longitude: -122.42184275,
-  // radius: 2000,
-  // excluded_events: ['oakland-saucy-oakland-restaurant-pop-up']
 }).then(response => {
   console.log(response.jsonBody.events[0].name);
 }).catch(e => {
@@ -238,9 +201,6 @@ const client = yelp.client('YOUR_API_KEY');
 
 client.featuredEvent({
   location: 'claremont, ca'
-//   latitude: 37.8112634,
-//   longitude: -122.2659978,
-//   locale: 'en_US'
 }).then(response => {
   console.log(response.jsonBody.description);
 }).catch(e => {
