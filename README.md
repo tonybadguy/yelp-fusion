@@ -251,6 +251,17 @@ client.featuredEvent({
 
 ### All Categories
 ```javascript
+'use strict';
+
+const yelp = require('./yelp-fusion.js');
+const apiKey = '<YOUR API KEY>'; 
+const client = yelp.client(apiKey);
+
+client.allCategories().then(response => {
+  console.log(response.jsonBody.categories[0].alias);
+}).catch(e => {
+  console.log(e);
+});
 ```
 
 ### Category Details
