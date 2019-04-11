@@ -135,14 +135,15 @@ client.businessMatch('lookup', {
   name: 'Pannikin Coffee & Tea',
   address1: '510 N Coast Hwy 101',
   address2: 'Encinitas, CA 92024',
-  // address3: "",
   city: 'Encinitas',
   state: 'CA',
   country: 'US'
+  // address3: "",
   // latitude: 37.7670169511878, 
   // longitude: -122.42184275,
   // phone: '+4105830000',
   // zip_code: '21286',
+  // yelp_business_id: 'fshpjHrtIlysFm0CnyUjbA',
   // limit: 1,
   // match_threshold: 'none'
 }).then(response => {
@@ -219,6 +220,17 @@ client.eventSearch({
   categories: 2,
   is_free: true,
   location: 'claremont, ca'
+  // locale: 'en_US',
+  // offset: 0,
+  // limit: 1,
+  // sort_by: 'asc',
+  // sort_on: 'popularity',
+  // start_date: 221845420799
+  // end_date: 221845420800
+  // latitude: 37.7670169511878, 
+  // longitude: -122.42184275,
+  // radius: 2000,
+  // excluded_events: ['oakland-saucy-oakland-restaurant-pop-up']
 }).then(response => {
   console.log(response.jsonBody.events[0].name);
 }).catch(e => {
