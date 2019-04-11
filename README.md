@@ -266,6 +266,18 @@ client.allCategories().then(response => {
 
 ### Category Details
 ```javascript
+'use strict';
+
+const yelp = require('./yelp-fusion.js');
+const apiKey = '<YOUR API KEY>'; 
+const client = yelp.client(apiKey);
+const categoryAlias = '3dprinting';
+
+client.categoryDetails(categoryAlias).then(response => {
+  console.log(response.jsonBody.category.title);
+}).catch(e => {
+  console.log(e);
+});
 ```
 
 <br/>
