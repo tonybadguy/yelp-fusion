@@ -14,7 +14,9 @@ https://www.yelp.com/developers/documentation/v3
 npm install yelp-fusion --save
 ```
 
-## Search
+## Business Endpoint
+
+### Business Search
 ```javascript
 'use strict';
 
@@ -44,7 +46,7 @@ client.search({
 });
 ```
 
-## Phone Search
+### Phone Search
 ```javascript
 'use strict';
 
@@ -62,7 +64,7 @@ client.phoneSearch({
 });
 ```
 
-## Transaction Search
+### Transaction Search
 ```javascript
 'use strict';
 
@@ -72,8 +74,8 @@ const client = yelp.client(apiKey);
 
 client.transactionSearch('delivery', {
   location:'san diego'
-  // latitude: 39.3938317, 
-  // longitude: -76.6074833,
+  // latitude: 37.7670169511878, 
+  // longitude: -122.42184275,
 }).then(response => {
   console.log(response.jsonBody.businesses[0].name);
 }).catch(e => {
@@ -81,7 +83,7 @@ client.transactionSearch('delivery', {
 });
 ```
 
-## Business
+### Business Details
 ```javascript
 'use strict';
 
@@ -96,7 +98,37 @@ client.business('gary-danko-san-francisco').then(response => {
 });
 ```
 
-## Reviews
+### Business Match
+```javascript
+'use strict';
+
+const yelp = require('yelp-fusion');
+
+const client = yelp.client(apiKey);
+
+// matchType can be 'lookup' or 'best'
+client.businessMatch('lookup', {
+  name: 'Pannikin Coffee & Tea',
+  address1: '510 N Coast Hwy 101',
+  address2: 'Encinitas, CA 92024',
+  // address3: "",
+  city: 'Encinitas',
+  state: 'CA',
+  country: 'US'
+  // latitude: 37.7670169511878, 
+  // longitude: -122.42184275,
+  // phone: '+4105830000',
+  // zip_code: '21286',
+  // limit: 1,
+  // match_threshold: 'none'
+}).then(response => {
+  console.log(response.jsonBody.businesses[0].id);
+}).catch(e => {
+  console.log(e);
+});
+```
+
+### Reviews
 ```javascript
 'use strict';
 
@@ -111,7 +143,7 @@ client.reviews('gary-danko-san-francisco').then(response => {
 });
 ```
 
-## Autocomplete
+### Autocomplete
 ```javascript
 'use strict';
 
@@ -131,30 +163,10 @@ client.autocomplete({
 });
 ```
 
-## Business Match
-```javascript
-'use strict';
 
-const yelp = require('yelp-fusion');
+## Event Endpoint
 
-const client = yelp.client(apiKey);
-
-// matchType can be 'lookup' or 'best'
-client.businessMatch('lookup', {
-  name: 'Pannikin Coffee & Tea',
-  address1: '510 N Coast Hwy 101',
-  address2: 'Encinitas, CA 92024',
-  city: 'Encinitas',
-  state: 'CA',
-  country: 'US'
-}).then(response => {
-  console.log(response.jsonBody.businesses[0].id);
-}).catch(e => {
-  console.log(e);
-});
-```
-
-## Event Search
+### Event Search
 ```javascript
 'use strict';
 
@@ -172,7 +184,7 @@ client.eventSearch({
 });
 ```
 
-## Advanced Request Options -- SocketTimeout
+### Advanced Request Options -- SocketTimeout
 
 Socket Timeout will abort the request if the server doesn't complete the response within that time in milliseconds.
 
