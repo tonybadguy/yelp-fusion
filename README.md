@@ -24,7 +24,19 @@ const client = yelp.client(apiKey);
 
 client.search({
   term:'Four Barrel Coffee',
-  location: 'san francisco, ca'
+  location: 'san francisco, ca',
+  // latitude: 37.7670169511878, 
+  // longitude: -122.42184275,
+  // radius: 2000,
+  // categories: 'food',
+  // locale: 'en_US',
+  // limit: 1,
+  // offset: 0,
+  // sort_by: "rating",
+  // price: "1,2,3",
+  // open_now: false,
+  // open_at: 0,
+  // attributes: "hot"
 }).then(response => {
   console.log(response.jsonBody.businesses[0].name);
 }).catch(e => {
@@ -42,6 +54,7 @@ const client = yelp.client(apiKey);
 
 client.phoneSearch({
   phone:'+14157492060'
+  // locale: 'en_US'
 }).then(response => {
   console.log(response.jsonBody.businesses[0].name);
 }).catch(e => {
@@ -59,6 +72,8 @@ const client = yelp.client(apiKey);
 
 client.transactionSearch('delivery', {
   location:'san diego'
+  // latitude: 39.3938317, 
+  // longitude: -76.6074833,
 }).then(response => {
   console.log(response.jsonBody.businesses[0].name);
 }).catch(e => {
@@ -106,6 +121,9 @@ const client = yelp.client(apiKey);
 
 client.autocomplete({
   text:'pizza'
+  // latitude: 37.7670169511878, 
+  // longitude: -122.42184275,
+  // locale: 'en_US'
 }).then(response => {
   console.log(response.jsonBody.terms[0].text);
 }).catch(e => {
