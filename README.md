@@ -48,7 +48,7 @@ const apiKey = '<YOUR API KEY>';
 const client = yelp.client(apiKey);
 
 client.businessSearch({
-  term:'Four Barrel Coffee',
+  term: 'Four Barrel Coffee',
   location: 'san francisco, ca',
   // latitude: 37.7670169511878, 
   // longitude: -122.42184275,
@@ -78,7 +78,7 @@ const apiKey = '<YOUR API KEY>';
 const client = yelp.client(apiKey);
 
 client.phoneSearch({
-  phone:'+14157492060'
+  phone: '+14157492060'
   // locale: 'en_US'
 }).then(response => {
   console.log(response.jsonBody.businesses[0].name);
@@ -96,7 +96,7 @@ const apiKey = '<YOUR API KEY>';
 const client = yelp.client(apiKey);
 
 client.transactionSearch('delivery', {
-  location:'san diego'
+  location: 'san diego'
   // latitude: 37.7670169511878, 
   // longitude: -122.42184275,
 }).then(response => {
@@ -177,7 +177,7 @@ const apiKey = '<YOUR API KEY>';
 const client = yelp.client(apiKey);
 
 client.autocomplete({
-  text:'pizza'
+  text: 'pizza'
   // latitude: 37.7670169511878, 
   // longitude: -122.42184275,
   // locale: 'en_US'
@@ -216,8 +216,8 @@ const apiKey = '<YOUR API KEY>';
 const client = yelp.client(apiKey);
 
 client.eventSearch({
-  categories:2,
-  is_free:true,
+  categories: 2,
+  is_free: true,
   location: 'claremont, ca'
 }).then(response => {
   console.log(response.jsonBody.events[0].name);
