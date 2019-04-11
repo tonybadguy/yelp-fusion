@@ -14,8 +14,6 @@ https://www.yelp.com/developers/documentation/v3
 npm install yelp-fusion --save
 ```
 
-<br/>
-
 ## Table of Contents
 Business Endpoint:
   * [Business Search](#business-search)
@@ -189,21 +187,7 @@ client.autocomplete({
 ## Event Endpoint 
 
 ### Event Lookup
-```javascript
-'use strict';
-
-const yelp = require('yelp-fusion');
-const client = yelp.client(apiKey);
-
-client.eventSearch({
-  categories:2,
-  is_free:true,
-  location: 'claremont, ca'
-}).then(response => {
-  console.log(response.jsonBody.events[0].name);
-}).catch(e => {
-  console.log(e);
-});
+```
 ```
 
 ### Event Search
@@ -224,7 +208,21 @@ client.eventSearch({
 });
 ```
 
-### Advanced Request Options -- SocketTimeout
+### Featured Event
+```
+```
+
+## Category Endpoint 
+
+### All Categories
+```
+```
+
+### Category Details
+```
+```
+
+## Advanced Request Options -- SocketTimeout
 
 Socket Timeout will abort the request if the server doesn't complete the response within that time in milliseconds.
 
