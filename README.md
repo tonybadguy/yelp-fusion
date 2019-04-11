@@ -17,7 +17,7 @@ npm install yelp-fusion --save
 <br/>
 
 ## Table of Contents
-Business Endpoint:
+Business Endpoints:
   * [Business Search](#business-search)
   * [Phone](#phone-search)
   * [Delivery](#transaction-search)
@@ -26,26 +26,25 @@ Business Endpoint:
   * [Reviews](#reviews)
   * [Autocomplete](#autocomplete)
 
-Event Endpoint:
+Event Endpoints:
   * [Event Lookup](#event-lookup)
   * [Event Search](#event-search)
   * [Featured Event](#featured-event)
 
-Category Endpoint:
+Category Endpoints:
   * [All Categories](#all-categories)
   * [Category Details](#category-details)
 
 <br/>
 
-## Business Endpoint 
+## Business Endpoints 
 
 ### Business Search
 ```javascript
 'use strict';
 
 const yelp = require('yelp-fusion');
-const apiKey = '<YOUR API KEY>'; 
-const client = yelp.client(apiKey);
+const client = yelp.client('YOUR_API_KEY');
 
 client.businessSearch({
   term: 'Four Barrel Coffee',
@@ -74,8 +73,7 @@ client.businessSearch({
 'use strict';
 
 const yelp = require('yelp-fusion');
-const apiKey = '<YOUR API KEY>'; 
-const client = yelp.client(apiKey);
+const client = yelp.client('YOUR_API_KEY');
 
 client.phoneSearch({
   phone: '+14157492060'
@@ -92,8 +90,7 @@ client.phoneSearch({
 'use strict';
 
 const yelp = require('yelp-fusion');
-const apiKey = '<YOUR API KEY>'; 
-const client = yelp.client(apiKey);
+const client = yelp.client('YOUR_API_KEY');
 
 client.transactionSearch('delivery', {
   location: 'san diego'
@@ -111,8 +108,7 @@ client.transactionSearch('delivery', {
 'use strict';
 
 const yelp = require('yelp-fusion');
-const apiKey = '<YOUR API KEY>'; 
-const client = yelp.client(apiKey);
+const client = yelp.client('YOUR_API_KEY');
 const businessID = 'gary-danko-san-francisco';
 
 client.business(businessID).then(response => {
@@ -127,8 +123,7 @@ client.business(businessID).then(response => {
 'use strict';
 
 const yelp = require('yelp-fusion');
-const apiKey = '<YOUR API KEY>'; 
-const client = yelp.client(apiKey);
+const client = yelp.client('YOUR_API_KEY');
 
 // matchType can be 'lookup' or 'best'
 client.businessMatch('lookup', {
@@ -158,8 +153,7 @@ client.businessMatch('lookup', {
 'use strict';
 
 const yelp = require('yelp-fusion');
-const apiKey = '<YOUR API KEY>'; 
-const client = yelp.client(apiKey);
+const client = yelp.client('YOUR_API_KEY');
 const businessID = 'gary-danko-san-francisco';
 
 client.reviews(businessID).then(response => {
@@ -174,8 +168,7 @@ client.reviews(businessID).then(response => {
 'use strict';
 
 const yelp = require('yelp-fusion');
-const apiKey = '<YOUR API KEY>'; 
-const client = yelp.client(apiKey);
+const client = yelp.client('YOUR_API_KEY');
 
 client.autocomplete({
   text: 'pizza'
@@ -190,15 +183,14 @@ client.autocomplete({
 ```
 <br/>
 
-## Event Endpoint 
+## Event Endpoints
 
 ### Event Lookup
 ```javascript
 'use strict';
 
 const yelp = require('yelp-fusion');
-const apiKey = '<YOUR API KEY>'; 
-const client = yelp.client(apiKey);
+const client = yelp.client('YOUR_API_KEY');
 const eventID = "oakland-saucy-oakland-restaurant-pop-up";
 
 client.eventLookup(eventID).then(response => {
@@ -213,8 +205,7 @@ client.eventLookup(eventID).then(response => {
 'use strict';
 
 const yelp = require('yelp-fusion');
-const apiKey = '<YOUR API KEY>'; 
-const client = yelp.client(apiKey);
+const client = yelp.client('YOUR_API_KEY');
 
 client.eventSearch({
   categories: 2,
@@ -243,8 +234,7 @@ client.eventSearch({
 'use strict';
 
 const yelp = require('yelp-fusion');
-const apiKey = '<YOUR API KEY>'; 
-const client = yelp.client(apiKey);
+const client = yelp.client('YOUR_API_KEY');
 
 client.featuredEvent({
   location: 'claremont, ca'
@@ -259,15 +249,14 @@ client.featuredEvent({
 ```
 <br/>
 
-## Category Endpoint 
+## Category Endpoints 
 
 ### All Categories
 ```javascript
 'use strict';
 
 const yelp = require('yelp-fusion');
-const apiKey = '<YOUR API KEY>'; 
-const client = yelp.client(apiKey);
+const client = yelp.client('YOUR_API_KEY');
 
 client.allCategories().then(response => {
   console.log(response.jsonBody.categories[0].alias);
@@ -281,8 +270,7 @@ client.allCategories().then(response => {
 'use strict';
 
 const yelp = require('yelp-fusion');
-const apiKey = '<YOUR API KEY>'; 
-const client = yelp.client(apiKey);
+const client = yelp.client('YOUR_API_KEY');
 const categoryAlias = '3dprinting';
 
 client.categoryDetails(categoryAlias).then(response => {
@@ -302,8 +290,7 @@ Socket Timeout will abort the request if the server doesn't complete the respons
 'use strict';
 
 const yelp = require('yelp-fusion');
-const apiKey = '<YOUR API KEY>'; 
-const client = yelp.client(apiKey, {
+const client = yelp.client('YOUR_API_KEY', {
   socketTimeout: 5000
 });
 
