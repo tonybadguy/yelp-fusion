@@ -242,7 +242,7 @@ client.eventSearch({
 ```javascript
 'use strict';
 
-const yelp = require('./yelp-fusion.js');
+const yelp = require('yelp-fusion');
 const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
 
@@ -265,7 +265,7 @@ client.featuredEvent({
 ```javascript
 'use strict';
 
-const yelp = require('./yelp-fusion.js');
+const yelp = require('yelp-fusion');
 const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
 
@@ -280,7 +280,7 @@ client.allCategories().then(response => {
 ```javascript
 'use strict';
 
-const yelp = require('./yelp-fusion.js');
+const yelp = require('yelp-fusion');
 const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
 const categoryAlias = '3dprinting';
