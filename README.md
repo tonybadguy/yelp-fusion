@@ -44,9 +44,10 @@ Category Endpoint:
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
 
-client.search({
+client.businessSearch({
   term:'Four Barrel Coffee',
   location: 'san francisco, ca',
   // latitude: 37.7670169511878, 
@@ -73,6 +74,7 @@ client.search({
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
 
 client.phoneSearch({
@@ -90,6 +92,7 @@ client.phoneSearch({
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
 
 client.transactionSearch('delivery', {
@@ -108,9 +111,11 @@ client.transactionSearch('delivery', {
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
+const businessID = 'gary-danko-san-francisco';
 
-client.business('gary-danko-san-francisco').then(response => {
+client.business(businessID).then(response => {
   console.log(response.jsonBody.name);
 }).catch(e => {
   console.log(e);
@@ -122,6 +127,7 @@ client.business('gary-danko-san-francisco').then(response => {
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
 
 // matchType can be 'lookup' or 'best'
@@ -151,9 +157,11 @@ client.businessMatch('lookup', {
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
+const businessID = 'gary-danko-san-francisco';
 
-client.reviews('gary-danko-san-francisco').then(response => {
+client.reviews(businessID).then(response => {
   console.log(response.jsonBody.reviews[0].text);
 }).catch(e => {
   console.log(e);
@@ -165,6 +173,7 @@ client.reviews('gary-danko-san-francisco').then(response => {
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
 
 client.autocomplete({
@@ -183,7 +192,19 @@ client.autocomplete({
 ## Event Endpoint 
 
 ### Event Lookup
-```
+```javascript
+'use strict';
+
+const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
+const client = yelp.client(apiKey);
+cosnt eventID = "oakland-saucy-oakland-restaurant-pop-up";
+
+client.eventLookup(eventID).then(response => {
+  console.log(response.jsonBody.reviews[0].text);
+}).catch(e => {
+  console.log(e);
+});
 ```
 
 ### Event Search
@@ -191,6 +212,7 @@ client.autocomplete({
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
 
 client.eventSearch({
@@ -227,6 +249,7 @@ Socket Timeout will abort the request if the server doesn't complete the respons
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey, {
   socketTimeout: 5000
 });
