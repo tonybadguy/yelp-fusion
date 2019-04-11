@@ -257,6 +257,8 @@ client.featuredEvent({
 ```javascript
 ```
 
+<br/>
+
 ## Advanced Request Options -- SocketTimeout
 
 Socket Timeout will abort the request if the server doesn't complete the response within that time in milliseconds.
