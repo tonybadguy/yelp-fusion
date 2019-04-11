@@ -14,7 +14,9 @@ https://www.yelp.com/developers/documentation/v3
 npm install yelp-fusion --save
 ```
 
-## Business Search
+<br/>
+
+### Business Search
 ```javascript
 'use strict';
 
@@ -44,7 +46,7 @@ client.search({
 });
 ```
 
-## Phone Search
+### Phone Search
 ```javascript
 'use strict';
 
@@ -62,7 +64,7 @@ client.phoneSearch({
 });
 ```
 
-## Transaction Search
+### Transaction Search
 ```javascript
 'use strict';
 
@@ -81,7 +83,7 @@ client.transactionSearch('delivery', {
 });
 ```
 
-## Business Details
+### Business Details
 ```javascript
 'use strict';
 
@@ -96,7 +98,7 @@ client.business('gary-danko-san-francisco').then(response => {
 });
 ```
 
-## Business Match
+### Business Match
 ```javascript
 'use strict';
 
@@ -126,7 +128,7 @@ client.businessMatch('lookup', {
 });
 ```
 
-## Reviews
+### Reviews
 ```javascript
 'use strict';
 
@@ -141,7 +143,7 @@ client.reviews('gary-danko-san-francisco').then(response => {
 });
 ```
 
-## Autocomplete
+### Autocomplete
 ```javascript
 'use strict';
 
@@ -161,7 +163,7 @@ client.autocomplete({
 });
 ```
 
-## Event Search
+### Event Search
 ```javascript
 'use strict';
 
@@ -179,7 +181,7 @@ client.eventSearch({
 });
 ```
 
-## Advanced Request Options -- SocketTimeout
+### Advanced Request Options -- SocketTimeout
 
 Socket Timeout will abort the request if the server doesn't complete the response within that time in milliseconds.
 
