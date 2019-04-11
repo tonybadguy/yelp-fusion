@@ -44,10 +44,11 @@ Category Endpoint:
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
 
-client.search({
-  term:'Four Barrel Coffee',
+client.businessSearch({
+  term: 'Four Barrel Coffee',
   location: 'san francisco, ca',
   // latitude: 37.7670169511878, 
   // longitude: -122.42184275,
@@ -73,10 +74,11 @@ client.search({
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
 
 client.phoneSearch({
-  phone:'+14157492060'
+  phone: '+14157492060'
   // locale: 'en_US'
 }).then(response => {
   console.log(response.jsonBody.businesses[0].name);
@@ -90,10 +92,11 @@ client.phoneSearch({
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
 
 client.transactionSearch('delivery', {
-  location:'san diego'
+  location: 'san diego'
   // latitude: 37.7670169511878, 
   // longitude: -122.42184275,
 }).then(response => {
@@ -108,9 +111,11 @@ client.transactionSearch('delivery', {
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
+const businessID = 'gary-danko-san-francisco';
 
-client.business('gary-danko-san-francisco').then(response => {
+client.business(businessID).then(response => {
   console.log(response.jsonBody.name);
 }).catch(e => {
   console.log(e);
@@ -122,6 +127,7 @@ client.business('gary-danko-san-francisco').then(response => {
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
 
 // matchType can be 'lookup' or 'best'
@@ -129,14 +135,15 @@ client.businessMatch('lookup', {
   name: 'Pannikin Coffee & Tea',
   address1: '510 N Coast Hwy 101',
   address2: 'Encinitas, CA 92024',
-  // address3: "",
   city: 'Encinitas',
   state: 'CA',
   country: 'US'
+  // address3: "",
   // latitude: 37.7670169511878, 
   // longitude: -122.42184275,
   // phone: '+4105830000',
   // zip_code: '21286',
+  // yelp_business_id: 'fshpjHrtIlysFm0CnyUjbA',
   // limit: 1,
   // match_threshold: 'none'
 }).then(response => {
@@ -151,9 +158,11 @@ client.businessMatch('lookup', {
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
+const businessID = 'gary-danko-san-francisco';
 
-client.reviews('gary-danko-san-francisco').then(response => {
+client.reviews(businessID).then(response => {
   console.log(response.jsonBody.reviews[0].text);
 }).catch(e => {
   console.log(e);
@@ -165,10 +174,11 @@ client.reviews('gary-danko-san-francisco').then(response => {
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
 
 client.autocomplete({
-  text:'pizza'
+  text: 'pizza'
   // latitude: 37.7670169511878, 
   // longitude: -122.42184275,
   // locale: 'en_US'
@@ -183,7 +193,19 @@ client.autocomplete({
 ## Event Endpoint 
 
 ### Event Lookup
-```
+```javascript
+'use strict';
+
+const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
+const client = yelp.client(apiKey);
+const eventID = "oakland-saucy-oakland-restaurant-pop-up";
+
+client.eventLookup(eventID).then(response => {
+  console.log(response.jsonBody.description);
+}).catch(e => {
+  console.log(e);
+});
 ```
 
 ### Event Search
@@ -191,12 +213,24 @@ client.autocomplete({
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey);
 
 client.eventSearch({
-  categories:2,
-  is_free:true,
+  categories: 2,
+  is_free: true,
   location: 'claremont, ca'
+  // locale: 'en_US',
+  // offset: 0,
+  // limit: 1,
+  // sort_by: 'asc',
+  // sort_on: 'popularity',
+  // start_date: 221845420799
+  // end_date: 221845420800
+  // latitude: 37.7670169511878, 
+  // longitude: -122.42184275,
+  // radius: 2000,
+  // excluded_events: ['oakland-saucy-oakland-restaurant-pop-up']
 }).then(response => {
   console.log(response.jsonBody.events[0].name);
 }).catch(e => {
@@ -205,19 +239,60 @@ client.eventSearch({
 ```
 
 ### Featured Event
-```
+```javascript
+'use strict';
+
+const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
+const client = yelp.client(apiKey);
+
+client.featuredEvent({
+  location: 'claremont, ca'
+//   latitude: 37.8112634,
+//   longitude: -122.2659978,
+//   locale: 'en_US'
+}).then(response => {
+  console.log(response.jsonBody.description);
+}).catch(e => {
+  console.log(e);
+});
 ```
 <br/>
 
 ## Category Endpoint 
 
 ### All Categories
-```
+```javascript
+'use strict';
+
+const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
+const client = yelp.client(apiKey);
+
+client.allCategories().then(response => {
+  console.log(response.jsonBody.categories[0].alias);
+}).catch(e => {
+  console.log(e);
+});
 ```
 
 ### Category Details
+```javascript
+'use strict';
+
+const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
+const client = yelp.client(apiKey);
+const categoryAlias = '3dprinting';
+
+client.categoryDetails(categoryAlias).then(response => {
+  console.log(response.jsonBody.category.title);
+}).catch(e => {
+  console.log(e);
+});
 ```
-```
+
+<br/>
 
 ## Advanced Request Options -- SocketTimeout
 
@@ -227,6 +302,7 @@ Socket Timeout will abort the request if the server doesn't complete the respons
 'use strict';
 
 const yelp = require('yelp-fusion');
+const apiKey = '<YOUR API KEY>'; 
 const client = yelp.client(apiKey, {
   socketTimeout: 5000
 });
