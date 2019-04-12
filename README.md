@@ -46,7 +46,7 @@ Category Endpoints:
 const yelp = require('yelp-fusion');
 const client = yelp.client('YOUR_API_KEY');
 
-client.businessSearch({
+client.search({
   term: 'Four Barrel Coffee',
   location: 'san francisco, ca',
 }).then(response => {
@@ -94,9 +94,8 @@ client.transactionSearch('delivery', {
 
 const yelp = require('yelp-fusion');
 const client = yelp.client('YOUR_API_KEY');
-const businessID = 'gary-danko-san-francisco';
 
-client.business(businessID).then(response => {
+client.business('gary-danko-san-francisco').then(response => {
   console.log(response.jsonBody.name);
 }).catch(e => {
   console.log(e);
@@ -110,8 +109,7 @@ client.business(businessID).then(response => {
 const yelp = require('yelp-fusion');
 const client = yelp.client('YOUR_API_KEY');
 
-// matchType can be 'lookup' or 'best'
-client.businessMatch('lookup', {
+client.businessMatch({
   name: 'Pannikin Coffee & Tea',
   address1: '510 N Coast Hwy 101',
   address2: 'Encinitas, CA 92024',
@@ -131,9 +129,8 @@ client.businessMatch('lookup', {
 
 const yelp = require('yelp-fusion');
 const client = yelp.client('YOUR_API_KEY');
-const businessID = 'gary-danko-san-francisco';
 
-client.reviews(businessID).then(response => {
+client.reviews('gary-danko-san-francisco').then(response => {
   console.log(response.jsonBody.reviews[0].text);
 }).catch(e => {
   console.log(e);
@@ -165,9 +162,8 @@ client.autocomplete({
 
 const yelp = require('yelp-fusion');
 const client = yelp.client('YOUR_API_KEY');
-const eventID = "oakland-saucy-oakland-restaurant-pop-up";
 
-client.eventLookup(eventID).then(response => {
+client.eventLookup("oakland-saucy-oakland-restaurant-pop-up").then(response => {
   console.log(response.jsonBody.description);
 }).catch(e => {
   console.log(e);
@@ -231,9 +227,8 @@ client.allCategories().then(response => {
 
 const yelp = require('yelp-fusion');
 const client = yelp.client('YOUR_API_KEY');
-const categoryAlias = '3dprinting';
 
-client.categoryDetails(categoryAlias).then(response => {
+client.categoryDetails('3dprinting').then(response => {
   console.log(response.jsonBody.category.title);
 }).catch(e => {
   console.log(e);
