@@ -14,17 +14,41 @@ https://www.yelp.com/developers/documentation/v3
 npm install yelp-fusion --save
 ```
 
-## Search
+<br/>
+
+## Table of Contents
+Business Endpoints:
+  * [Business Search](#business-search)
+  * [Phone](#phone-search)
+  * [Delivery](#transaction-search)
+  * [Business Details](#business-details)
+  * [Match](#business-match)
+  * [Reviews](#reviews)
+  * [Autocomplete](#autocomplete)
+
+Event Endpoints:
+  * [Event Lookup](#event-lookup)
+  * [Event Search](#event-search)
+  * [Featured Event](#featured-event)
+
+Category Endpoints:
+  * [All Categories](#all-categories)
+  * [Category Details](#category-details)
+
+<br/>
+
+## Business Endpoints 
+
+### Business Search
 ```javascript
 'use strict';
 
 const yelp = require('yelp-fusion');
+const client = yelp.client('YOUR_API_KEY');
 
-const client = yelp.client(apiKey);
-
-client.search({
-  term:'Four Barrel Coffee',
-  location: 'san francisco, ca'
+client.businessSearch({
+  term: 'Four Barrel Coffee',
+  location: 'san francisco, ca',
 }).then(response => {
   console.log(response.jsonBody.businesses[0].name);
 }).catch(e => {
@@ -32,16 +56,15 @@ client.search({
 });
 ```
 
-## Phone Search
+### Phone Search
 ```javascript
 'use strict';
 
 const yelp = require('yelp-fusion');
-
-const client = yelp.client(apiKey);
+const client = yelp.client('YOUR_API_KEY');
 
 client.phoneSearch({
-  phone:'+14157492060'
+  phone: '+14157492060'
 }).then(response => {
   console.log(response.jsonBody.businesses[0].name);
 }).catch(e => {
@@ -49,16 +72,15 @@ client.phoneSearch({
 });
 ```
 
-## Transaction Search
+### Transaction Search
 ```javascript
 'use strict';
 
 const yelp = require('yelp-fusion');
-
-const client = yelp.client(apiKey);
+const client = yelp.client('YOUR_API_KEY');
 
 client.transactionSearch('delivery', {
-  location:'san diego'
+  location: 'san diego'
 }).then(response => {
   console.log(response.jsonBody.businesses[0].name);
 }).catch(e => {
@@ -66,60 +88,27 @@ client.transactionSearch('delivery', {
 });
 ```
 
-## Business
+### Business Details
 ```javascript
 'use strict';
 
 const yelp = require('yelp-fusion');
+const client = yelp.client('YOUR_API_KEY');
+const businessID = 'gary-danko-san-francisco';
 
-const client = yelp.client(apiKey);
-
-client.business('gary-danko-san-francisco').then(response => {
+client.business(businessID).then(response => {
   console.log(response.jsonBody.name);
 }).catch(e => {
   console.log(e);
 });
 ```
 
-## Reviews
+### Business Match
 ```javascript
 'use strict';
 
 const yelp = require('yelp-fusion');
-
-const client = yelp.client(apiKey);
-
-client.reviews('gary-danko-san-francisco').then(response => {
-  console.log(response.jsonBody.reviews[0].text);
-}).catch(e => {
-  console.log(e);
-});
-```
-
-## Autocomplete
-```javascript
-'use strict';
-
-const yelp = require('yelp-fusion');
-
-const client = yelp.client(apiKey);
-
-client.autocomplete({
-  text:'pizza'
-}).then(response => {
-  console.log(response.jsonBody.terms[0].text);
-}).catch(e => {
-  console.log(e);
-});
-```
-
-## Business Match
-```javascript
-'use strict';
-
-const yelp = require('yelp-fusion');
-
-const client = yelp.client(apiKey);
+const client = yelp.client('YOUR_API_KEY');
 
 // matchType can be 'lookup' or 'best'
 client.businessMatch('lookup', {
@@ -136,16 +125,65 @@ client.businessMatch('lookup', {
 });
 ```
 
-## Event Search
+### Reviews
 ```javascript
 'use strict';
 
 const yelp = require('yelp-fusion');
-const client = yelp.client(apiKey);
+const client = yelp.client('YOUR_API_KEY');
+const businessID = 'gary-danko-san-francisco';
+
+client.reviews(businessID).then(response => {
+  console.log(response.jsonBody.reviews[0].text);
+}).catch(e => {
+  console.log(e);
+});
+```
+
+### Autocomplete
+```javascript
+'use strict';
+
+const yelp = require('yelp-fusion');
+const client = yelp.client('YOUR_API_KEY');
+
+client.autocomplete({
+  text: 'pizza'
+}).then(response => {
+  console.log(response.jsonBody.terms[0].text);
+}).catch(e => {
+  console.log(e);
+});
+```
+<br/>
+
+## Event Endpoints
+
+### Event Lookup
+```javascript
+'use strict';
+
+const yelp = require('yelp-fusion');
+const client = yelp.client('YOUR_API_KEY');
+const eventID = "oakland-saucy-oakland-restaurant-pop-up";
+
+client.eventLookup(eventID).then(response => {
+  console.log(response.jsonBody.description);
+}).catch(e => {
+  console.log(e);
+});
+```
+
+### Event Search
+```javascript
+'use strict';
+
+const yelp = require('yelp-fusion');
+const client = yelp.client('YOUR_API_KEY');
 
 client.eventSearch({
-  categories:2,
-  is_free:true,
+  categories: 2,
+  is_free: true,
   location: 'claremont, ca'
 }).then(response => {
   console.log(response.jsonBody.events[0].name);
@@ -153,6 +191,56 @@ client.eventSearch({
   console.log(e);
 });
 ```
+
+### Featured Event
+```javascript
+'use strict';
+
+const yelp = require('yelp-fusion');
+const client = yelp.client('YOUR_API_KEY');
+
+client.featuredEvent({
+  location: 'claremont, ca'
+}).then(response => {
+  console.log(response.jsonBody.description);
+}).catch(e => {
+  console.log(e);
+});
+```
+<br/>
+
+## Category Endpoints 
+
+### All Categories
+```javascript
+'use strict';
+
+const yelp = require('yelp-fusion');
+const client = yelp.client('YOUR_API_KEY');
+
+client.allCategories().then(response => {
+  console.log(response.jsonBody.categories[0].alias);
+}).catch(e => {
+  console.log(e);
+});
+```
+
+### Category Details
+```javascript
+'use strict';
+
+const yelp = require('yelp-fusion');
+const client = yelp.client('YOUR_API_KEY');
+const categoryAlias = '3dprinting';
+
+client.categoryDetails(categoryAlias).then(response => {
+  console.log(response.jsonBody.category.title);
+}).catch(e => {
+  console.log(e);
+});
+```
+
+<br/>
 
 ## Advanced Request Options -- SocketTimeout
 
@@ -162,7 +250,7 @@ Socket Timeout will abort the request if the server doesn't complete the respons
 'use strict';
 
 const yelp = require('yelp-fusion');
-const client = yelp.client(apiKey, {
+const client = yelp.client('YOUR_API_KEY', {
   socketTimeout: 5000
 });
 
