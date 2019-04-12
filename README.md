@@ -6,6 +6,13 @@ Yelp Fusion API client for Node.js with Promises
 Please refer to official Yelp documentation for request / response model details:
 https://www.yelp.com/developers/documentation/v3
 
+#### V3 Breaking Changes
+The following beta endpoints have been deprecated by the API since April 1, 2019. This library has been updated to reflect this change.
+* ```GET https://api.yelp.com/v3/businesses/matches/best```
+* ```GET https://api.yelp.com/v3/businesses/matches/lookup```
+
+See https://www.yelp.com/developers/documentation/v3/business_match for more info
+
 #### V2 Breaking Changes
 * ```yelp.accessToken()``` method is removed because OAuthV2 is being deprecated by the API. Use the new API Key in place of the token derived from client id and client secret. See https://www.yelp.com/developers/documentation/v3/authentication#where-is-my-client-secret-going
 
